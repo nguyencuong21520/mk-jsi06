@@ -1,3 +1,7 @@
+const config = {
+  url: "http://127.0.0.1:5501/lesson2_signin_signup/signup/index.html",
+  handleCodeInApp: true,
+};
 let form_ = document.getElementById("signup");
 
 form_.onsubmit = (e) => {
@@ -43,10 +47,45 @@ form_.onsubmit = (e) => {
   }
 
   if (check) {
-    console.log("hello");
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        user.updateProfile({
+          displayName: username,
+        });
+        firebase.auth().currentUser.sendEmailVerification();
+        sweetAlert("success", "Please check your email to verify your account");
+        console.log(user);
+      })
+      .catch((error) => {
+        var errorMessage = error.message;
+        sweetAlert("error", errorMessage);
+      });
   }
 };
 
 let setError = (query, content) => {
   document.getElementById(query).innerHTML = content;
+};
+
+let sweetAlert = (icon, content) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: icon,
+    title: content,
+  });
 };

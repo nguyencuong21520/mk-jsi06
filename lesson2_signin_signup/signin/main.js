@@ -17,14 +17,48 @@ form_.onsubmit = (e) => {
   }
   if (!password) {
     setError("password_err", "Password is required");
-    check = false; 
+    check = false;
   }
 
   if (check) {
-    console.log("hello");
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        console.log(user);
+        if (user.emailVerified) {
+          sweetAlert("success", "Welcome back");
+        } else {
+          sweetAlert("error", "Please verify your email");
+        }
+      })
+      .catch((error) => {
+        var errorMessage = error.message;
+        sweetAlert("error", errorMessage);
+      });
   }
 };
 
 let setError = (query, content) => {
   document.getElementById(query).innerHTML = content;
+};
+let sweetAlert = (icon, content) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: icon,
+    title: content,
+  });
 };
