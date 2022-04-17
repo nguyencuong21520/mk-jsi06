@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <h1>Sign in</h1>
+        <form id="signin" action="">
+          <div class="input_wrapper">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="text" name="email" placeholder="Email" />
+          </div>
+          <p class="error" id="email_err"></p>
+          <div class="input_wrapper">
+            <i class="fa-solid fa-key"></i>
+            <input
+              id="ps"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <p class="error" id="password_err"></p>
+
+          <div class="show_password_wrapper">
+            <input type="checkbox" onclick="showPassword()" /><span
+              >Show Password</span
+            >
+          </div>
+
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+      <div class="right">
+        <div>
+          <lottie-player
+            src="https://assets10.lottiefiles.com/packages/lf20_lgvdhvlz.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <a href="../signup/index.html">I am already a member</a>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script
+      src="https://kit.fontawesome.com/18d5300895.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let showPassword = () => {
+        let password = document.querySelector("#ps");
+
+        if (password.type === "password") {
+          password.type = "text";
+        } else {
+          password.type = "password";
+        }
+      };
+    </script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
