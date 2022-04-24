@@ -57,8 +57,11 @@ form_.onsubmit = (e) => {
           displayName: username,
         });
         firebase.auth().currentUser.sendEmailVerification();
-        sweetAlert("success", "Please check your email to verify your account");
-        console.log(user);
+        // sweetAlert("success", "Please check your email to verify your account");
+        localStorage.setItem("currentUser", user.email);
+
+        open("../confirmEmail.html")
+        open("../signin/index.html", "_self")
       })
       .catch((error) => {
         var errorMessage = error.message;
