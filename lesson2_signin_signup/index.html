@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" id="photo" />
+    <button onclick="update()">update</button>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCRLjarPhgw9XQRNdcAv6-A6E2o1bOoQWA",
+        authDomain: "chatjsi06-b1670.firebaseapp.com",
+        projectId: "chatjsi06-b1670",
+        storageBucket: "chatjsi06-b1670.appspot.com",
+        messagingSenderId: "992689494561",
+        appId: "1:992689494561:web:913e2826c5c7ca61f82160",
+        measurementId: "G-Z02XQVTLQP",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

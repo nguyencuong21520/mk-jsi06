@@ -30,6 +30,8 @@ form_.onsubmit = (e) => {
         console.log(user);
         if (user.emailVerified) {
           sweetAlert("success", "Welcome back");
+
+          open("../index.html", "_self");
         } else {
           sweetAlert("error", "Please verify your email");
         }
