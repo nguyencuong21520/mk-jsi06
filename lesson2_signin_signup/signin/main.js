@@ -31,7 +31,7 @@ form_.onsubmit = (e) => {
         if (user.emailVerified) {
           sweetAlert("success", "Welcome back");
 
-          open("../index.html", "_self");
+          open("../updateAccount.html", "_self");
         } else {
           sweetAlert("error", "Please verify your email");
         }
