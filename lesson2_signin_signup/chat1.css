@@ -1,0 +1,315 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.left,
+.right {
+  height: 90vh;
+}
+.left {
+  padding: 0px !important;
+}
+.right {
+}
+@media screen and (max-width: 762px) {
+  .left {
+    height: 30vh;
+  }
+  .right {
+    height: 60vh;
+  }
+}
+.header {
+  background-image: linear-gradient(
+    to top,
+    #d16ba5,
+    #c777b9,
+    #ba83ca,
+    #aa8fd8,
+    #9a9ae1,
+    #8aa7ec,
+    #79b3f4,
+    #69bff8,
+    #52cffe,
+    #41dfff,
+    #46eefa,
+    #5ffbf1
+  );
+  padding: 8px 13px;
+}
+
+.left .avatar img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.left .header .func > * {
+  margin-left: 10px;
+}
+
+.search {
+  padding: 8px 10px;
+}
+.search input {
+  width: 90%;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+.search i {
+  margin-left: 12px;
+  font-size: 22px;
+  cursor: pointer;
+}
+.search i:hover {
+  color: #95a5a6;
+}
+hr {
+  margin: 0px !important;
+}
+
+.users_list {
+  height: 100%;
+}
+.card-body {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+/* copy code userlist */
+
+.users_list a {
+  text-decoration: none !important;
+  display: block;
+  margin-bottom: 0;
+  color: #555;
+}
+
+.users_list .badge {
+  font-size: 0.7em;
+  padding: 5px 10px;
+  line-height: 1;
+  margin-left: 10px;
+}
+
+.users_list .item {
+  padding: 20px;
+}
+
+.users_list .item:nth-of-type(even) {
+  background: #fafafa;
+}
+
+.users_list .item .image {
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.users_list .item img {
+  padding: 3px;
+  border: 1px solid #28a745;
+}
+
+.users_list .item h3 {
+  color: #555;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.users_list .item small {
+  color: #aaa;
+  font-size: 0.75em;
+}
+
+/* dark mode style */
+/* From uiverse.io by @satyamchaudharydev */
+/* The switch - the box around the slider */
+.switch {
+  /* --moon-mask: ; */
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #303136;
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.5em);
+  background: #303136;
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -5px 0 0 #a3dafb;
+}
+
+/* dark mode style */
+.right .header {
+  border-left: 1px solid #e0e0e0;
+}
+.user_info img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.right .user_name_wrapper {
+  margin-left: 5px;
+}
+.right .user_name_wrapper h2 {
+  font-size: 19px;
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  height: 93%;
+  overflow-y: scroll;
+}
+
+.mess {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mess > * {
+  margin: 0px;
+  margin-top: 3px;
+}
+.mess-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.mess-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mess-content {
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: whitesmoke;
+  width: 85%;
+  margin-top: 10px;
+}
+
+.mess p:nth-child(1) {
+  font-size: 12px;
+  margin: 0px;
+  color: #40739e;
+}
+.mess p:nth-child(2) {
+  font-size: 14px;
+  margin: 0px;
+  color: black;
+  width: 100%;
+}
+.mess p:nth-child(3) {
+  font-size: 12px;
+  margin: 0px;
+  color: #353b48;
+  text-align: right;
+}
+.mess.owner {
+  align-self: end;
+  flex-flow: row-reverse;
+}
+
+.mess.owner .mess-content {
+  background-color: #0097e6;
+  border: #0097e6;
+}
+
+.mess.owner p:nth-child(1) {
+  color: #ff7979;
+}
+.mess.owner p:nth-child(2) {
+  color: white;
+}
+.mess.owner p:nth-child(3) {
+  color: #ff7979;
+}
+
+.chat_body {
+  height: calc(100% - 82px);
+}
+
+.chat_input {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  height: 7%;
+  width: 100%;
+  background-color:white;
+}
+
+.chat_input form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.chat_input input {
+  width: 95%;
+  border: none;
+  border-bottom: 2px solid black;
+  padding:8px;
+  background-color: transparent;
+}
+.chat_input input:focus{
+  outline: none;
+}
