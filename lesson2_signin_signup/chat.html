@@ -14,7 +14,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body class="a">
     <div class="container">
       <div class="row">
         <div class="left col-12 col-md-6 col-xl-4">
@@ -24,7 +24,7 @@
               <span>Nguyễn Văn Cường</span>
             </div>
             <div class="func">
-              <i class="fa-solid fa-right-from-bracket fa-2x"></i>
+              <i onclick="signOut()" class="fa-solid fa-right-from-bracket fa-2x"></i>
               <i class="fa-solid fa-pen-to-square fa-2x"></i>
             </div>
           </div>
@@ -36,151 +36,21 @@
 
           <div class="users_list">
             <div class="card-body no-padding">
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Aria Smith. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Frank Williams. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Ashley Wood. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Jason Doe. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Sam Martinez. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Aria Smith. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Aria Smith. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Aria Smith. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Aria Smith. </small>
-                </div>
-              </div>
-              <div class="item d-flex align-items-center">
-                <div class="image">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="..."
-                    class="img-fluid rounded-circle"
-                  />
-                </div>
-                <div class="text">
-                  <a href="#"> <h3 class="h5">Lorem Ipsum Dolor</h3></a
-                  ><small>Posted on 5th June 2017 by Aria Smith. </small>
-                </div>
-              </div>
+              Loading...
             </div>
           </div>
         </div>
         <div class="right col-12 col-md-6 col-xl-8 p-0">
           <div class="header d-flex justify-content-between align-items-center">
             <div class="user_info d-flex align-items-center">
-              <img src="https://picsum.photos/300" alt="" />
+              <img id="currentUserImg" src="https://picsum.photos/300" alt="" />
               <div class="user_name_wrapper">
-                <h2 class="m-0">Nguyễn Văn Cường</h2>
-                <p class="m-0">nguyencuong21520</p>
+                <h2 id="currentUserName" class="m-0">Loading ...</h2>
               </div>
             </div>
             <div class="dark_mode_setting">
               <label class="switch">
-                <input type="checkbox">+-
+                <input id="sw_mode" type="checkbox" />+-
                 <span class="slider"></span>
               </label>
             </div>
@@ -189,75 +59,16 @@
             </div>
           </div>
           <div class="chat_body">
-          <div class="chat">
-            <div class="mess">
-              <div class="mess-avatar">
-                <img src="https://picsum.photos/300" alt="" />
-              </div>
-              <div class="mess-content">
-                <p>nguyencuong21520</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quaerat quasi dolores maiores in totam id aut ex facere perferendis? Hic illum ipsum consequatur laborum quidem beatae vero totam a?</p>
-                <p>Wed 19:00:30</p>
-              </div>
+            <div class="chat">
+              <p>Loading ...</p>
             </div>
-            <div class="mess owner">
-              <div class="mess-avatar">
-                <img src="https://picsum.photos/300" alt="" />
-              </div>
-              <div class="mess-content">
-                <p>nguyencuong21520</p>
-                <p>Hello Anh</p>
-                <p>Wed 19:00:30</p>
-              </div>
+            <hr />
+            <div class="chat_input">
+              <form action="">
+                <input type="text" placeholder="Nhập tin nhắn" />
+                <i class="fa-solid fa-paper-plane"></i>
+              </form>
             </div>
-            <div class="mess">
-              <div class="mess-avatar">
-                <img src="https://picsum.photos/300" alt="" />
-              </div>
-              <div class="mess-content">
-                <p>nguyencuong21520</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quaerat quasi dolores maiores in totam id aut ex facere perferendis? Hic illum ipsum consequatur laborum quidem beatae vero totam a?</p>
-                <p>Wed 19:00:30</p>
-              </div>
-            </div>
-            <div class="mess">
-              <div class="mess-avatar">
-                <img src="https://picsum.photos/300" alt="" />
-              </div>
-              <div class="mess-content">
-                <p>nguyencuong21520</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quaerat quasi dolores maiores in totam id aut ex facere perferendis? Hic illum ipsum consequatur laborum quidem beatae vero totam a?</p>
-                <p>Wed 19:00:30</p>
-              </div>
-            </div>
-            <div class="mess">
-              <div class="mess-avatar">
-                <img src="https://picsum.photos/300" alt="" />
-              </div>
-              <div class="mess-content">
-                <p>nguyencuong21520</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quaerat quasi dolores maiores in totam id aut ex facere perferendis? Hic illum ipsum consequatur laborum quidem beatae vero totam a?</p>
-                <p>Wed 19:00:30</p>
-              </div>
-            </div>
-            <div class="mess">
-              <div class="mess-avatar">
-                <img src="https://picsum.photos/300" alt="" />
-              </div>
-              <div class="mess-content">
-                <p>nguyencuong21520</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quaerat quasi dolores maiores in totam id aut ex facere perferendis? Hic illum ipsum consequatur laborum quidem beatae vero totam a?</p>
-                <p>Wed 19:00:30</p>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <div class="chat_input">
-            <form action="">
-              <input type="text" placeholder="Nhập tin nhắn">
-              <i class="fa-solid  fa-paper-plane"></i>
-            </form>
-          </div>
           </div>
         </div>
       </div>
@@ -273,5 +84,27 @@
       src="https://kit.fontawesome.com/18d5300895.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCRLjarPhgw9XQRNdcAv6-A6E2o1bOoQWA",
+        authDomain: "chatjsi06-b1670.firebaseapp.com",
+        projectId: "chatjsi06-b1670",
+        storageBucket: "chatjsi06-b1670.appspot.com",
+        messagingSenderId: "992689494561",
+        appId: "1:992689494561:web:913e2826c5c7ca61f82160",
+        measurementId: "G-Z02XQVTLQP",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+    <script src="./chat.js"></script>
   </body>
 </html>
