@@ -3,21 +3,22 @@ document.querySelector("#sw_mode").addEventListener("click", function () {
   document.body.classList.toggle("dark_mode");
 });
 
-var email_ = ""
-var currentid_ = ""
-var img_ = ""
+var email_ = "";
+var currentid_ = "";
+var img_ = "";
+var conversations = [];
 
 // check xem sự thay đổi của user đã được lưu trong firebase hay chưa
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     var uid = user.uid;
 
-
     email_ = user.email;
-    img_ = user.photoURL
+    img_ = user.photoURL;
     renderCurrentUser(user.photoURL, user.displayName);
 
     loadchat(user.email);
+    setUpConversationchange(email_);
     // ...
   } else {
     alert("Bạn chưa đăng nhập");
@@ -50,6 +51,7 @@ let loadchat = async (email) => {
     .get();
 
   let data = getDataFromDocs(result.docs);
+  conversations = data;
   console.log(data);
   renderUserList(data, email);
   renderChat(data[0], email);
@@ -95,6 +97,8 @@ let renderChat = (data, ownerEmail) => {
   </div>`;
     dom.innerHTML += html;
   }
+  let chat_scroll = document.querySelector(".chat");
+  chat_scroll.scrollTop = chat_scroll.scrollHeight;
 };
 
 let renderUserList = (data, email) => {
@@ -166,9 +170,8 @@ formChat.onsubmit = (e) => {
 
   let content = formChat.chat.value.trim();
 
-
-
-  updateNewMessage(content, email_,img_, clock(), currentid_);
+  updateNewMessage(content, email_, img_, clock(), currentid_);
+  formChat.chat.value = "";
 };
 
 let updateNewMessage = async (content, email, img, time, currentID) => {
@@ -188,4 +191,66 @@ let updateNewMessage = async (content, email, img, time, currentID) => {
         chat: firebase.firestore.FieldValue.arrayUnion(message),
       });
   }
+};
+
+let setUpConversationchange = async (email) => {
+  let skipRun = true;
+  let currentEmail = email;
+  firebase
+    .firestore()
+    .collection("chat")
+    .where("users", "array-contains", currentEmail)
+    .onSnapshot(function (snapshot) {
+      if (skipRun) {
+        skipRun = false;
+        return;
+      }
+
+      let docChanges = snapshot.docChanges();
+      for (let docChange of docChanges) {
+        let type = docChange.type;
+        let conversationDoc = docChange.doc;
+        let data = getDataFromDoc(conversationDoc);
+        if (type == "modified") {
+          renderChat(data, email_);
+        }
+        if (type == "added") {
+          conversations.push(data);
+          renderUserList(conversations, email_);
+        }
+      }
+    });
+};
+
+document.querySelector("#addConversation_btn").addEventListener("click", () => {
+  let chatName = document.querySelector("#addConversation_Name").value;
+  let users = document.querySelector("#addConversation_Users").value;
+  let listUsers = users.trim().split(" ");
+  if (email_) {
+    listUsers.push(email_);
+  }
+  let photo = document.querySelector("#addConversation_Photo").files[0];
+
+  const ref = firebase.storage().ref();
+  const metadata = {
+    contentType: photo.type,
+  };
+  const name = photo.name;
+
+  const Upload = ref.child(name).put(photo, metadata);
+  Upload.then((snapshot) => snapshot.ref.getDownloadURL()).then((url) => {
+    let data = {
+      avatar: url,
+      chat: [],
+      name: chatName,
+      timeStart: clock(),
+      users: listUsers,
+    };
+    addConversation(data);
+  });
+});
+
+let addConversation = async (data) => {
+  await firebase.firestore().collection("chat").add(data);
+  alert("successfully");
 };

@@ -49,13 +49,13 @@ let updateAccout = async (username, phoneNumber, photo) => {
     })
     .then(() => {
       // Update successful
-      sweetAlert("success","updateProfile success")
+      sweetAlert("success", "updateProfile success");
 
       // ...
     })
     .catch((error) => {
       // An error occurred
-      sweetAlert("error",error.message)
+      sweetAlert("error", error.message);
       // ...
     });
 };
@@ -78,5 +78,3 @@ let sweetAlert = (icon, content) => {
     title: content,
   });
 };
-
-
