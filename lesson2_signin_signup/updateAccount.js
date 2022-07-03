@@ -49,12 +49,34 @@ let updateAccout = async (username, phoneNumber, photo) => {
     })
     .then(() => {
       // Update successful
+      sweetAlert("success","updateProfile success")
+
       // ...
     })
     .catch((error) => {
       // An error occurred
+      sweetAlert("error",error.message)
       // ...
     });
+};
+
+let sweetAlert = (icon, content) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: icon,
+    title: content,
+  });
 };
 
 

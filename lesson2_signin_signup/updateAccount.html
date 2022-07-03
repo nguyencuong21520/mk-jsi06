@@ -35,6 +35,7 @@
           </div>
 
           <button type="submit" class="btn btn-success">Update</button>
+          <a href="./chat.html" class="btn btn-primary">Chat</a>
         </form>
       </div>
     </div>
@@ -44,7 +45,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
-
 
     <script>
       const firebaseConfig = {
@@ -60,6 +60,7 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./updateAccount.js"></script>
 
